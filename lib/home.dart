@@ -33,8 +33,11 @@ class _HomePageState extends State<HomePage> {
 
   permission() async {
     if (granted == false) {
-      final status = await Permission.camera.request();
-      if (status == PermissionStatus.granted) {
+      final statusVid = await Permission.camera.request();
+      final statusAud = await Permission.microphone.request();
+
+      if (statusVid == PermissionStatus.granted &&
+          statusAud == PermissionStatus.granted) {
         setState(() {
           granted = true;
         });
@@ -78,32 +81,53 @@ class _HomePageState extends State<HomePage> {
                 )
               : SizedBox(
                   height: double.infinity,
+                  width: double.infinity,
                   child: Center(
-                    child: Column(
-                      children: [
-                        const Text(
-                            "An error occurred while accessing camera, please grant the camera permission :)"),
-                        Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: TextButton(
-                              onPressed: () async {
-                                Map<Permission, PermissionStatus> statuses =
-                                    await [Permission.camera].request();
-                                debugPrint(
-                                    statuses[Permission.camera].toString());
-                                // statuses[Permission.camera] == PermissionStatus.granted
-                                //     ? Navigator.push(
-                                //         context,
-                                //         MaterialPageRoute(
-                                //             builder: (context) => IntroScreenPage(cameras: cameras)),
-                                //       )
-                                //     : const Text("");
-                              },
-                              child: const Text("Grant Permission!")),
-                        ),
-                        const Text(
-                            "You may have to manually go to settings and enable permission if this button doesn't work!"),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 100,
+                          ),
+                          const Text(
+                            "An error occurred while accessing camera, please grant the camera permission :)",
+                            style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: ElevatedButton(
+                                onPressed: () => permission(),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: const Text(
+                                    "Grant Permission!",
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          const Text(
+                            "You may have to manually go to settings and enable permission if this button doesn't work!",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )),

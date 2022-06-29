@@ -1,5 +1,4 @@
 import 'package:camera/camera.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:testing/home.dart';
@@ -15,11 +14,14 @@ class IntroScreenPage extends StatefulWidget {
 
 class IntroScreenPageState extends State<IntroScreenPage> {
   Widget _buildImage(String assetName) {
-    return Image.asset(
-      'assets/$assetName',
-      width: 200,
-      height: 200,
-      fit: BoxFit.contain,
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Image.asset(
+        'assets/$assetName',
+        width: 240,
+        height: 240,
+        fit: BoxFit.contain,
+      ),
     );
   }
 
@@ -41,12 +43,10 @@ class IntroScreenPageState extends State<IntroScreenPage> {
           bodyWidget: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              Text("Book", style: TextStyle(fontSize: 32)),
-              Text("Appointments with", style: TextStyle(fontSize: 32)),
-              Text("Doctors", style: TextStyle(fontSize: 32)),
+              Text("Welcome!", style: TextStyle(fontSize: 32)),
             ],
           ),
-          image: _buildImage('0001.jpeg'),
+          image: _buildImage('welcome.jpg'),
           decoration: pageDecoration,
           footer: TextButton(
               style: TextButton.styleFrom(
@@ -72,12 +72,12 @@ class IntroScreenPageState extends State<IntroScreenPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
-                Text("Get Estimated Time", style: TextStyle(fontSize: 32)),
-                Text("of Appointment", style: TextStyle(fontSize: 32))
+                Text("Using AI", style: TextStyle(fontSize: 32)),
+                Text("to show we care", style: TextStyle(fontSize: 32))
               ],
             ),
           ),
-          image: _buildImage('0002.jpeg'),
+          image: _buildImage('g11.jpeg'),
           decoration: pageDecoration,
           footer: TextButton(
               style: TextButton.styleFrom(
@@ -103,12 +103,12 @@ class IntroScreenPageState extends State<IntroScreenPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
-                Text("Keep track of your", style: TextStyle(fontSize: 32)),
-                Text("Position in the Queue", style: TextStyle(fontSize: 32))
+                Text("You Look,", style: TextStyle(fontSize: 32)),
+                Text("We Listen!", style: TextStyle(fontSize: 32))
               ],
             ),
           ),
-          image: _buildImage('0003.jpeg'),
+          image: _buildImage('g11.1.jpeg'),
           decoration: pageDecoration,
           footer: TextButton(
               style: TextButton.styleFrom(
@@ -125,7 +125,7 @@ class IntroScreenPageState extends State<IntroScreenPage> {
                 );
               },
               child: const Text(
-                "GET STARTED",
+                "GET STARTED!",
                 style: TextStyle(fontSize: 27, color: Colors.white),
               )),
         ),

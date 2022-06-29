@@ -44,6 +44,8 @@ dependencies:
   sk_onboarding_screen: ^1.0.1
   introduction_screen: ^3.0.2
   tflite: ^1.1.2
+  secure_application: ^3.8.0
+  wakelock: ^0.6.1+2
 
 # The following section is specific to Flutter.
 flutter:
@@ -59,9 +61,8 @@ flutter:
    - assets/vgg_model.tflite
    - assets/welcome.jpg
    - assets/labels.txt
-   - assets/0001.jpeg
-   - assets/0002.jpeg
-   - assets/0003.jpeg
+   - assets/g11.jpeg
+   - assets/g11.1.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

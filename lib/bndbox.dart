@@ -40,38 +40,6 @@ class _BndBoxState extends State<BndBox> {
       bool emergency = false;
       return widget.results.map((re) {
         String label = re["label"];
-        // gaugedResults.add(label);
-        // debugPrint(label + gaugedResults.length.toString());
-        // int j = check(gaugedResults);
-        // if (j == 1) {
-        //   setState(() {
-        //     emergency = true;
-        //   });
-        //   showDialog(
-        //       context: context,
-        //       builder: (BuildContext context) {
-        //         return AlertDialog(
-        //           shape: RoundedRectangleBorder(
-        //               borderRadius: BorderRadius.circular(8)),
-        //           title: Text(
-        //             "Emergency Initiated",
-        //             style: TextStyle(fontSize: 36),
-        //           ),
-        //           actions: <Widget>[
-        //             TextButton(
-        //                 onPressed: () {
-        //                   Navigator.of(context).pop();
-        //                 },
-        //                 child: Text(
-        //                   "Taken Care Of!",
-        //                   style: TextStyle(color: Colors.black),
-        //                 ))
-        //           ],
-        //         );
-        //       });
-        //   j = 0;
-        //   gaugedResults.clear();
-        // }
         double confidenceLevel = re["confidence"];
         offset = offset + 14;
         return Positioned(
@@ -82,8 +50,8 @@ class _BndBoxState extends State<BndBox> {
           child: Text(
             "$label with ${(confidenceLevel * 100).toStringAsFixed(0)}%",
             style: const TextStyle(
-              color: Color.fromRGBO(37, 213, 253, 1.0),
-              fontSize: 24.0,
+              color: Color(0Xff674d3c),
+              fontSize: 26.0,
               fontWeight: FontWeight.bold,
             ),
           ),

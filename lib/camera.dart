@@ -101,13 +101,13 @@ class _CameraState extends State<Camera> with WidgetsBindingObserver {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFa2836e),
         title: const Text(
           "Welcome!",
           style: TextStyle(
-              fontWeight: FontWeight.w600, color: Colors.black, fontSize: 24),
+              fontWeight: FontWeight.w600, color: Colors.white, fontSize: 24),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
         shape:
             const Border(bottom: BorderSide(color: Colors.black, width: 0.3)),
       ),
@@ -118,7 +118,14 @@ class _CameraState extends State<Camera> with WidgetsBindingObserver {
         maxWidth: screenRatio > previewRatio
             ? screenH / previewH * previewW
             : screenW,
-        child: Scaffold(body: CameraPreview(controller)),
+        child: Scaffold(
+            backgroundColor: Color(0xFFFFF2DF),
+            body: Container(
+                margin: EdgeInsets.all(60),
+                child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: CameraPreview(controller)))),
       ),
     );
   }
